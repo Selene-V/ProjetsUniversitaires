@@ -1,0 +1,332 @@
+/*parametres*/
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 80%;
+}
+body .titre {
+  background: #2980b9;
+  padding-left: 10px;
+}
+body .titre h1 {
+  font: bold 30pt arial, helvetica, sans-serif;
+  color: white;
+}
+body nav {
+  background: #3498db;
+}
+body nav ul {
+  display: flex;
+  justify-content: start;
+  margin: 0;
+  height: 50px;
+}
+body nav ul li {
+  list-style: none;
+  margin-right: 30px;
+}
+body nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+body nav ul li a.active:after,
+body nav ul li a:hover:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+body main input#switch {
+  max-height: 0;
+  max-width: 0;
+  opacity: 0;
+  position: absolute;
+}
+body main input#switch + label {
+  display: block;
+  position: absolute;
+  height: 30px;
+  width: 50px;
+  border-radius: 15px;
+  background-color: lightgrey;
+  margin-left: 2%;
+  margin-top: 1%;
+}
+body main input#switch + label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 30px;
+  width: 2%;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+body main input#switch + label:after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 30px;
+  width: 30px;
+  top: 0px;
+  left: 0px;
+  border-radius: 15px;
+  background: white;
+}
+body main input#switch:checked + label:before {
+  width: 50px;
+  background: black;
+}
+body main input#switch:checked + label:after {
+  left: 20px;
+}
+body main #switch:checked ~ #page {
+  background-color: #0a3d62;
+  color: lightyellow;
+}
+body main #switch:checked ~ #page .case {
+  background-color: darkgrey;
+  color: white;
+}
+body main #switch:checked ~ #page .case .ligne1 {
+  color: white;
+}
+body main #switch:checked ~ #page .case .ligne1 img:hover {
+  transform: scale(1.1);
+  background-color: greenyellow;
+  border-radius: 10%;
+  transition: 1s;
+}
+body main #switch:checked ~ #page .case .flip .flip-card {
+  border: 1px solid darkgrey;
+}
+body main #switch:checked ~ #page .case .flip .flip-card .flip-card-inner .flip-card-front {
+  background-color: gray;
+  color: white;
+}
+body main #switch:checked ~ #page .case .flip .flip-card .flip-card-inner .flip-card-back {
+  background-color: seagreen;
+  color: white;
+}
+body main #page {
+  background-color: white;
+  margin-top: -20px;
+}
+body main #page input#switchTout {
+  opacity: 0;
+}
+body main #page input#switchTout:checked + label {
+  border: solid 2px red;
+}
+body main #page input#switchLangage {
+  opacity: 0;
+}
+body main #page input#switchLangage:checked + label {
+  border: solid 2px red;
+}
+body main #page input#switchLangue {
+  opacity: 0;
+}
+body main #page input#switchLangue:checked + label {
+  border: solid 2px red;
+}
+body main #page input#switchAutre {
+  opacity: 0;
+}
+body main #page input#switchAutre:checked + label {
+  border: solid 2px red;
+}
+body main #page .case {
+  background-color: beige;
+  color: black;
+  width: 80%;
+  border-radius: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  padding: 10px;
+}
+body main #page #nom {
+  top: 100px;
+  text-align: center;
+}
+body main #page #nom .moi {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+body main #page #nom .coordonnees img {
+  width: 30px;
+  height: 30px;
+}
+body main #page #nom .adresse {
+  vertical-align: baseline;
+}
+body main #page #nom .adresse img {
+  width: 30px;
+  height: 30px;
+}
+body main #page #nom .permis {
+  vertical-align: baseline;
+}
+body main #page #nom .permis img {
+  width: 30px;
+  height: 30px;
+}
+body main #page #competences .ligne1 {
+  display: flex;
+  justify-content: center;
+}
+body main #page #competences .ligne1 img {
+  margin-top: 15px;
+  width: 70px;
+  height: 70px;
+}
+body main #page #competences .ligne1 img:hover {
+  transform: scale(1.1);
+  background-color: greenyellow;
+  border-radius: 10%;
+  transition: 1s;
+}
+body main #page #competences input#switchLangage:checked + label ~ .ligne1 .photoshop {
+  display: none;
+}
+body main #page #competences input#switchLangage:checked + label ~ .ligne1 .anglais {
+  display: none;
+}
+body main #page #competences input#switchLangage:checked + label ~ .ligne1 .francais {
+  display: none;
+}
+body main #page #competences input#switchLangage:checked + label ~ .ligne1 .photo {
+  display: none;
+}
+body main #page #competences input#switchLangue:checked + label ~ .ligne1 .html {
+  display: none;
+}
+body main #page #competences input#switchLangue:checked + label ~ .ligne1 .photoshop {
+  display: none;
+}
+body main #page #competences input#switchLangue:checked + label ~ .ligne1 .android {
+  display: none;
+}
+body main #page #competences input#switchLangue:checked + label ~ .ligne1 .photo {
+  display: none;
+}
+body main #page #competences input#switchAutre:checked + label ~ .ligne1 .html {
+  display: none;
+}
+body main #page #competences input#switchAutre:checked + label ~ .ligne1 .android {
+  display: none;
+}
+body main #page #competences input#switchAutre:checked + label ~ .ligne1 .anglais {
+  display: none;
+}
+body main #page #competences input#switchAutre:checked + label ~ .ligne1 .francais {
+  display: none;
+}
+body main #page #experiences_pros .flip {
+  display: flex;
+  justify-content: center;
+}
+body main #page #experiences_pros .flip .flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+body main #page #experiences_pros .flip .flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+body main #page #experiences_pros .flip .flip-card .flip-card-inner .flip-card-front,
+body main #page #experiences_pros .flip .flip-card .flip-card-inner .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+body main #page #experiences_pros .flip .flip-card .flip-card-inner .flip-card-front {
+  background-color: lightslategrey;
+  color: black;
+  border-radius: 2%;
+}
+body main #page #experiences_pros .flip .flip-card .flip-card-inner .flip-card-front img {
+  width: 50px;
+  height: 50px;
+}
+body main #page #experiences_pros .flip .flip-card .flip-card-inner .flip-card-back {
+  background-color: violet;
+  color: black;
+  border-radius: 2%;
+  transform: rotateY(180deg);
+  filter: invert(100%);
+}
+body main #page #experiences_pros .flip .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+body main #page #formations .flip {
+  display: flex;
+  justify-content: center;
+}
+body main #page #formations .flip .flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+}
+body main #page #formations .flip .flip-card .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+body main #page #formations .flip .flip-card .flip-card-inner .flip-card-front,
+body main #page #formations .flip .flip-card .flip-card-inner .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+body main #page #formations .flip .flip-card .flip-card-inner .flip-card-front {
+  background-color: blueviolet;
+  color: black;
+  border-radius: 2%;
+}
+body main #page #formations .flip .flip-card .flip-card-inner .flip-card-front img {
+  width: 50px;
+  height: 50px;
+}
+body main #page #formations .flip .flip-card .flip-card-inner .flip-card-back {
+  background-color: pink;
+  color: black;
+  border-radius: 2%;
+  transform: rotateY(180deg);
+  filter: invert(100%);
+}
+body main #page #formations .flip .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+footer {
+  bottom: 0;
+  background-color: lightgrey;
+  text-align: center;
+  width: 100%;
+}
+/*# sourceMappingURL=cv.css.map */

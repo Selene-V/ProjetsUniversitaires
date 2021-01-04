@@ -1,0 +1,83 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Liste des quiz{% endblock %}
+
+{% block css %}
+    <link href="/css/pagination.css" rel="stylesheet">
+{% endblock %}
+
+{% block navbar %}
+    <a class="nav-link" href="/connexion-admin">Déconnexion<span class="sr-only"></span></a>
+
+    <a class="nav-link" href="/admins">Liste Administrateurs <span class="sr-only"></span></a>
+
+    <a class="nav-link" href="/users">Liste Utilisateurs <span class="sr-only"></span></a>
+
+    <a class="nav-link" href="/themes">Liste Thèmes <span class="sr-only"></span></a>
+
+    <a class="nav-link" href="/questions">Liste Questions <span class="sr-only"></span></a>
+
+    <li class="nav-item active">
+        <a class="nav-link" href="#">Liste Quiz <span class="sr-only"></span></a>
+    </li>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <input id="search-bar" type="text" placeholder="chercher un utilisateur"/>
+        <table class="table table-bordered text-center text-nowrap ">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col" rowspan="2" class="align-middle">Id</th>
+                <th scope="col" rowspan="2" class="align-middle">Mode de jeu</th>
+                <th scope="col" colspan="4">Joueur 1</th>
+                <th scope="col" colspan="4">Joueur 2</th>
+                <th scope="col" rowspan="2" class="align-middle">Commencé le</th>
+                <th scope="col" rowspan="2" class="align-middle">Gagnant</th>
+            </tr>
+            <tr>
+                <th scope="col">Username</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+
+                <th scope="col">Username</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for quizz in listeQuizz %}
+                <tr>
+                    <th scope="row">{{ quizz.id }}</th>
+                    <td>{{ quizz.mode }}</td>
+                    <td class="username">{{ quizz.user1.username }}</td>
+                    <td>{{ quizz.user1.firstName }}</td>
+                    <td>{{ quizz.user1.lastName }}</td>
+                    <td>{{ quizz.user1.email }}</td>
+                    {% if quizz.user2 is defined %}
+                        <td class="username">{{ quizz.user2.username }}</td>
+                        <td>{{ quizz.user2.firstName }}</td>
+                        <td>{{ quizz.user2.lastName }}</td>
+                        <td>{{ quizz.user2.email }}</td>
+                    {% endif %}
+                    <td>{{ quizz.startAt }}</td>
+                    <td class="username">{{ quizz.winner.username }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div id="button-container">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/delete.js"></script>
+    <script src="/js/pagination.js"></script>
+    <script src="/js/search.js"></script>
+{% endblock %}

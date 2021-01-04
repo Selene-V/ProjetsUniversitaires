@@ -1,0 +1,10 @@
+#main {
+    margin-top: 100px;
+    margin-right: 0;
+    padding: 0;
+}
+
+#main div.container{
+    margin-right: 10px;
+    padding: 0;
+}

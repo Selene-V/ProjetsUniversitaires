@@ -1,0 +1,68 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Liste des themes{% endblock %}
+
+{% block css %}
+    <link href="/css/pagination.css" rel="stylesheet">
+{% endblock %}
+
+{% block navbar %}
+        <a class="nav-link" href="/connexion-admin">Deconnexion<span class="sr-only"></span></a>
+        
+        <a class="nav-link" href="/admins">Liste Administrateurs <span class="sr-only"></span></a>
+        
+        <a class="nav-link" href="/users">Liste Utilisateurs <span class="sr-only"></span></a>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Liste Thèmes <span class="sr-only"></span></a>
+        </li>
+
+        <a class="nav-link" href="/questions">Liste Questions <span class="sr-only"></span></a>
+
+        <a class="nav-link" href="/quizz">Liste Quiz <span class="sr-only"></span></a>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <p class="text-center">
+        <a href="/theme" class="btn btn-success">Nouveau thème</a>
+    </p>
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Thème</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for theme in themes %}
+                <tr>
+                    <th scope="row">{{ theme.id }}</th>
+                    <td>{{ theme.nom }}</td>
+                    <td>
+                        <a href="/theme/{{ theme.id }}">modifier</a> -
+                        <a href="#" data-id="{{ theme.id }}" class="delete-theme">supprimer</a> -
+                        <a href="/questions/theme/{{ theme.id }}">Voir la liste des questions de ce thème</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div id="button-container">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/delete.js"></script>
+    <script src="/js/pagination.js"></script>
+{% endblock %}

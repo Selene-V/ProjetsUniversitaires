@@ -1,0 +1,122 @@
+
+/*parametres*/
+
+@bleuC: rgb(52, 152, 219);
+@bleuF: rgb(41, 128, 185);
+
+@ar: arial, helvetica, sans-serif;
+
+body{
+  display:flex;
+  flex-direction: column;
+  margin: 0;
+
+  .titre{
+    background: @bleuF;
+    padding-left: 10px;
+
+    h1{
+      font: bold 30pt @ar;
+      color: white;
+
+    }
+  }
+
+
+  nav{
+    background:@bleuC;
+
+    ul{
+      display: flex;
+      justify-content: start;
+      margin: 0;
+      height: 50px;
+
+
+      li {
+        list-style: none;
+        margin-right:30px;
+
+        a{
+          text-decoration: none;
+          color: white;
+          display: flex;
+          height: 100%;
+          align-items: center;
+          position: relative;
+
+          &.active, &:hover {
+            &:after{
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              height: 3px;
+              width: 100%;
+              background: white;
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+  .menuVertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .mVitrine{
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      width: 60%;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding: 5px 5px 5px 10px;
+
+    }
+    .m{
+      display: flex;
+      flex-direction: row;
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      width: 60%;
+      margin-bottom: 20px;
+      padding: 5px 5px 5px 10px;
+
+
+      img {
+        width: 40%;
+      }
+
+      .mText{
+        margin-left: 15px;
+        width: 60%;
+      }
+    }
+    a{
+      text-decoration: none;
+      display: flex;
+      justify-content: flex-end;
+      color: #3498db;
+    }
+  }
+
+}
+
+footer{
+  bottom: 0;
+  background-color: lightgrey;
+  text-align: center;
+  width: 100%;
+}
+/*
+ul li .active{
+    border-bottom: white 3px;
+}
+*/
+
+
+
+
+
+

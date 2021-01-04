@@ -1,0 +1,157 @@
+/*parametres*/
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 80%;
+}
+body .titre {
+  background: #2980b9;
+  padding-left: 10px;
+}
+body .titre h1 {
+  font: bold 30pt arial, helvetica, sans-serif;
+  color: white;
+}
+body nav {
+  background: #3498db;
+}
+body nav ul {
+  display: flex;
+  justify-content: start;
+  margin: 0;
+  height: 50px;
+}
+body nav ul li {
+  list-style: none;
+  margin-right: 30px;
+}
+body nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+body nav ul li a.active:after,
+body nav ul li a:hover:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+body main #table {
+  margin: 20px;
+}
+body main #table .cellule {
+  display: flex;
+}
+body main #table .cellule .switch {
+  max-height: 0;
+  max-width: 0;
+  margin: 10px;
+  position: absolute;
+  user-select: none;
+  opacity: 0;
+}
+body main #table .cellule label {
+  width: 100px;
+  height: 100px;
+  user-select: none;
+  margin: 5px 10px;
+  color: transparent;
+  text-align: center;
+  background-image: url(./img/doscarte.webp);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b1:checked + label {
+  background-image: url(./img/pomme.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b2:checked + label {
+  background-image: url(./img/raisin.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b3:checked + label {
+  background-image: url(./img/pomme.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b4:checked + label {
+  background-image: url(./img/noix_de_coco.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b5:checked + label {
+  background-image: url(./img/banane.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b6:checked + label {
+  background-image: url(./img/orange.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b7:checked + label {
+  background-image: url(./img/mure.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b8:checked + label {
+  background-image: url(./img/amande.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b9:checked + label {
+  background-image: url(./img/fraise.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b10:checked + label {
+  background-image: url(./img/amande.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b11:checked + label {
+  background-image: url(./img/banane.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b12:checked + label {
+  background-image: url(./img/fraise.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b13:checked + label {
+  background-image: url(./img/raisin.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b14:checked + label {
+  background-image: url(./img/noix_de_coco.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b15:checked + label {
+  background-image: url(./img/mure.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+body main #table .cellule .switch#b16:checked + label {
+  background-image: url(./img/orange.png);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+}
+footer {
+  bottom: 0;
+  background-color: lightgrey;
+  text-align: center;
+  width: 100%;
+}
+/*# sourceMappingURL=jeu.css.map */

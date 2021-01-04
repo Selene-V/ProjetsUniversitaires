@@ -1,0 +1,183 @@
+/*parametres*/
+
+@bleuC: rgb(52, 152, 219);
+@bleuF: rgb(41, 128, 185);
+
+@ar: arial, helvetica, sans-serif;
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+
+  .titre {
+    background: @bleuF;
+    padding-left: 10px;
+
+    h1 {
+      font: bold 30pt @ar;
+      color: white;
+
+    }
+  }
+
+
+  nav {
+    background: @bleuC;
+
+    ul {
+      display: flex;
+      justify-content: start;
+      margin: 0;
+      height: 50px;
+
+
+      li {
+        list-style: none;
+        margin-right: 30px;
+
+        a {
+          text-decoration: none;
+          color: white;
+          display: flex;
+          height: 100%;
+          align-items: center;
+          position: relative;
+
+          &.active, &:hover {
+            &:after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              height: 3px;
+              width: 100%;
+              background: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .page {
+    .consigne{
+      margin-left: 10px;
+      font-size: 25px;
+    }
+
+    .checkbox {
+      margin-top: 30px;
+      margin-left: 10px;
+      margin-right: 10px;
+      display: flex;
+      flex-direction: row;
+
+
+      //bouton
+      input[type=checkbox] {
+        height: 0;
+        width: 0;
+        margin: 10px;
+        //visibility: hidden;
+      }
+
+      //label{
+      //  cursor: pointer;
+      //  width: 90px;
+      //  height: 90px;
+      //  left: 10px;
+      //  background: lightgrey;
+      //  display: block;
+      //  border-radius: 10px;
+      //}
+      //
+      //&:checked+label{
+      //  background: blue;
+      //  border: 3px solid cyan;
+      //}
+
+      .check
+       {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        left: 10px;
+        background: blue;
+        border: 3px solid cyan;
+        display: block;
+        position: relative;
+        border-radius: 10px;
+      }
+
+      .switch:checked + .check{
+        background: lightgrey;
+        border: 3px solid antiquewhite;
+        width: 50px;
+        height: 50px;
+      }
+
+      .res {
+        width: 50px;
+        height: 50px;
+        left: 10px;
+        background: lightgrey;
+        border: 3px solid antiquewhite;
+        display: block;
+        position: relative;
+        border-radius: 10px;
+      }
+
+
+      counter-reset: cmpt;
+
+      #b1:checked{
+        counter-increment: cmpt 64;
+      }
+
+      #b2:checked{
+        counter-increment: cmpt 16;
+      }
+
+      #b3:checked{
+        counter-increment: cmpt -32;
+      }
+
+      #b4:checked{
+        counter-increment: cmpt 128;
+      }
+
+      #b5:checked{
+        counter-increment: cmpt 4;
+      }
+
+      #b6:checked{
+        counter-increment: cmpt -8;
+      }
+
+      #b7:checked{
+        counter-increment: cmpt -8;
+      }
+
+      .res::before{
+        content: " = ";
+      }
+
+      .res::after{
+        content: counter(cmpt);
+      }
+
+      #b1:checked + label + #b2:checked + label + #b3:not(:checked) + label + #b4:not(:checked) + label + #b5:not(:checked) +label + #b6:checked +label + #res + label.res::after{
+        content: counter(cmpt) " victoire";
+      }
+    }
+  }
+}
+footer{
+  bottom: 0;
+  background-color: lightgrey;
+  text-align: center;
+  width: 100%;
+}
+// ~ access aux frere et soeurs suivant
+// + access a ce qui est juste apres
+// , applique aux deux elements

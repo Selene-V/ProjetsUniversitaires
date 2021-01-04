@@ -1,0 +1,47 @@
+body{
+  label{
+    &.required{
+      &:after{
+        content : "*";
+        color:red;
+
+      }
+    }
+  }
+  input [type="checkbox"]{
+    &.switch {
+      & + label{
+        display: block;
+        background-color: #2980b9;
+        width: 80px;
+        height: 35px;
+  position: relative;
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width:40px;
+        height: 35px;
+        background-color: yellow;
+        border-radius: 3px;
+
+      }
+    }
+    &:checked{
+      &+label{
+        &:after{
+          background-color: green;
+          left: 50%;
+        }
+      }
+    }
+  }
+}
+
+// ~ access aux frere et soeurs suivant
+// + access a ce qui est juste apres
+// , applique aux deux elements
+
+// Le div prend de base toute la page, ajouter width pour diminuer

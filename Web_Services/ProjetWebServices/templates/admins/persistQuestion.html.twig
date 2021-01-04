@@ -1,0 +1,126 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {% if theme is not null %}
+        Modification de "{{ question.label }}"
+    {% else %}
+        Création d'une question
+    {% endif %}
+
+{% endblock %}
+
+{% block css %}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock %}
+
+{% block navbar %}
+    <li class="nav-item">
+        <a class="nav-link" href="/connexion-admin">Deconnexion<span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/admins">Liste Administrateurs <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/users">Liste Utilisateurs <span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/themes">Liste Thèmes <span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/questions">Liste Questions <span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/quizz">Liste Quiz <span class="sr-only"></span></a>
+    </li>
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">
+        {% if question is not null %}
+            Modification de "{{ question.label }}"
+        {% else %}
+            Création d'une question
+        {% endif %}
+    </h1>
+
+
+    <div class="container">
+
+        {% set formUrl="/question" %}
+
+        {% if theme is not null or question is not null %}
+            {% set formUrl="/question/" ~ question.id %}
+        {% endif %}
+
+        <form action="{{ formUrl }}" method="post">
+            <div class="form-group">
+                <label for="label">Label de la question</label>
+                <input type="text" class="form-control" id="label" name="label" value="{% if question is not null %}{{ question.label }}{% endif %}" placeholder="{% if alert.label is not null %}{{ alert.label }}{% endif %}">
+            </div>
+
+            <div class="form-group">
+                <label for="answers">Réponses possibles (cocher la réponse correcte):</label>
+                <div class="form-group" id="answers">
+                    <ul>
+                        <li>
+                            <label for="answer1">Réponse 1
+                                <input type="radio" id="ans1" name="isCorrect" value="0" {% if reponses[0].isRight%}checked{% elseif reponse is null %}checked{% endif %}>
+                            </label>
+                            <input type="text" class="form-control" id="answer1" name="answer1" value="{% if reponses[0] is not null %}{{ reponses[0].label }}{% endif %}" placeholder="{% if alert.question is not null %}{{ alert.question }}{% endif %}">
+                        </li>
+                        <li>
+                            <label for="answer2">Réponse 2
+                                <input type="radio" id="ans2" name="isCorrect" value="1" {% if reponses[1].isRight%}checked{% endif %}>
+                            </label>
+                            <input type="text" class="form-control" id="answer2" name="answer2" value="{% if reponses[1] is not null %}{{ reponses[1].label }}{% endif %}" placeholder="{% if alert.question is not null %}{{ alert.question }}{% endif %}">
+                        </li>
+                        <li>
+                            <label for="answer3">Réponse 3
+                                <input type="radio" id="ans3" name="isCorrect" value="2" {% if reponses[2].isRight%}checked{% endif %}>
+                            </label>
+                            <input type="text" class="form-control" id="answer3" name="answer3" value="{% if reponses[2] is not null %}{{ reponses[2].label }}{% endif %}" placeholder="{% if alert.question is not null %}{{ alert.question }}{% endif %}">
+                        </li>
+                        <li>
+                            <label for="answer4">Réponse 4
+                                <input type="radio" id="ans4" name="isCorrect" value="3" {% if reponses[3].isRight%}checked{% endif %}>
+                            </label>
+                            <input type="text" class="form-control" id="answer4" name="answer4" value="{% if reponses[3] is not null %}{{ reponses[3].label }}{% endif %}" placeholder="{% if alert.question is not null %}{{ alert.question }}{% endif %}">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="theme">Thème</label><br>
+                <select class="form-control" name="theme" id="theme">
+                    {% for theme in themes %}
+                        <option value="{{ theme.id }}"
+                            {% if question is not null and theme.id == question.theme %}
+                                selected
+                            {% elseif saveParams is not null and theme.id == saveParams.theme %}
+                                selected
+                            {% endif %}>
+                            {{ theme.nom }}
+                        </option>
+                    {% endfor %}
+
+                </select>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/selectTheme.js"></script>
+{% endblock %}

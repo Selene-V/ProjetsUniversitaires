@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <meta charset="UTF-8">
+    <title>Portefeuille</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<label>Veuillez saisir votre montant :</label>
+<input class="form-control" id="montant" placeholder="Veuillez saisir votre montant">
+<p class="erreur" id="erreurMontant"></p>
+
+<select class="custom-select" id="selectDevise">
+    <option id="choixDevise" value="choixDevise">Choisissez votre devise</option>
+</select>
+<p class="erreur" id="erreurDevise"></p>
+
+<select class="custom-select" id="selectChoix">
+    <option id="choix" value="choix">Choisissez débit ou crédit</option>
+    <option id="credit" value="credit">Crédit</option>
+    <option id="debit" value="debit">Débit</option>
+</select>
+<p class="erreur" id="erreurChoix"></p>
+
+<input id="valider" class="btn btn-primary" type="submit" value="Valider">
+
+<table class="table table-bordered" id="tab">
+    <tbody id="tableau">
+        <tr>
+            <th>Voici votre portefeuille</th>
+        </tr>
+        <tr>
+            <th>Montant</th>
+            <th>Devise</th>
+        </tr>
+    </tbody>
+</table>
+
+<div id="divmontantTotal">
+    <p>Montant total en euros : <span id="montantTotal">0</span> €</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="module" src="../js/Devise.js"></script>
+<script type="module" src="../js/Portefeuille.js"></script>
+</body>
+</html>

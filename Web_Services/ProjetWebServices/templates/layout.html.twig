@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}DuelQuizz{% endblock %}</title>
+    <meta charset="utf-8">
+
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+
+    {% block css %}
+    {% endblock %}
+</head>
+<body class="d-flex flex-column h-100">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/">DuelQuizz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                {% block navbar %}
+                
+                {% endblock %}
+            </ul>
+        </div>
+    </nav>
+
+    <div id="main">
+        {% block body %}{% endblock %}
+    </div>
+    {% block js %}
+    {% endblock %}
+</body>
+</html>

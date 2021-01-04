@@ -1,0 +1,426 @@
+/*parametres*/
+
+@bleuC: rgb(52, 152, 219);
+@bleuF: rgb(41, 128, 185);
+
+@ar: arial, helvetica, sans-serif;
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 80%;
+
+  .titre {
+    background: @bleuF;
+    padding-left: 10px;
+
+    h1 {
+      font: bold 30pt @ar;
+      color: white;
+
+    }
+  }
+
+  nav {
+    background: @bleuC;
+
+    ul {
+      display: flex;
+      justify-content: start;
+      margin: 0;
+      height: 50px;
+
+
+      li {
+        list-style: none;
+        margin-right: 30px;
+
+        a {
+          text-decoration: none;
+          color: white;
+          display: flex;
+          height: 100%;
+          align-items: center;
+          position: relative;
+
+          &.active, &:hover {
+            &:after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              height: 3px;
+              width: 100%;
+              background: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    input#switch {
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      position: absolute;
+    }
+
+    input#switch + label {
+      display: block;
+      position: absolute;
+      height: 30px;
+      width: 50px;
+      border-radius: 15px;
+      background-color: lightgrey;
+      margin-left: 2%;
+      margin-top: 1%;
+    }
+
+    input#switch + label:before {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 2%;
+      top: 0;
+      left: 0;
+      border-radius: 15px;
+    }
+
+    input#switch + label:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 30px;
+      width: 30px;
+      top: 0px;
+      left: 0px;
+      border-radius: 15px;
+      background: white;
+    }
+
+    //change fond si active
+    input#switch:checked + label:before {
+      width: 50px;
+      background: black;
+    }
+
+    input#switch:checked + label:after {
+      left: 20px;
+    }
+
+    #switch:checked ~ #page {
+      background-color: #0a3d62;
+      color: lightyellow;
+
+      .case {
+        background-color: darkgrey;
+        color: white;
+
+        .ligne1 {
+          color: white;
+
+          img {
+
+            &:hover {
+              transform: scale(1.1);
+              background-color: greenyellow;
+              border-radius: 10%;
+              transition: 1s;
+            }
+          }
+        }
+
+        .flip {
+          .flip-card {
+            border: 1px solid darkgrey;
+
+            .flip-card-inner {
+              .flip-card-front {
+                background-color: gray;
+                color: white;
+              }
+
+              .flip-card-back {
+                background-color: seagreen;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #page {
+      background-color: white;
+      margin-top: -20px;
+
+      input#switchTout {
+        opacity: 0;
+      }
+
+      input#switchTout:checked + label {
+        border: solid 2px red;
+      }
+
+      input#switchLangage {
+        opacity: 0;
+      }
+
+      input#switchLangage:checked + label {
+        border: solid 2px red;
+      }
+
+      input#switchLangue {
+        opacity: 0;
+      }
+
+      input#switchLangue:checked + label {
+        border: solid 2px red;
+      }
+
+
+
+      input#switchAutre {
+        opacity: 0;
+      }
+
+      input#switchAutre:checked + label {
+        border: solid 2px red;
+      }
+
+      .case {
+        background-color: beige;
+        color: black;
+        width: 80%;
+        border-radius: 2%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        padding: 10px;
+      }
+
+      #nom {
+        top: 100px;
+        text-align: center;
+
+        .moi {
+          border-radius: 50%;
+          width: 200px;
+          height: 200px;
+        }
+
+        .coordonnees {
+          img {
+
+            width: 30px;
+            height: 30px;
+          }
+
+        }
+
+        .adresse {
+          vertical-align: baseline;
+
+          img {
+
+            width: 30px;
+            height: 30px;
+          }
+
+        }
+
+        .permis {
+          vertical-align: baseline;
+
+          img {
+
+            width: 30px;
+            height: 30px;
+          }
+
+        }
+      }
+
+      #competences {
+        .ligne1{
+          display:flex;
+          justify-content: center;
+          img {
+            margin-top: 15px;
+            width: 70px;
+            height: 70px;
+
+            &:hover {
+              transform: scale(1.1);
+              background-color: greenyellow;
+              border-radius: 10%;
+              transition: 1s;
+            }
+          }
+        }
+        input#switchLangage:checked + label ~ .ligne1{
+          .photoshop{
+            display:none;
+          }
+          .anglais{
+            display:none;
+          }
+          .francais{
+            display:none;
+          }
+          .photo{
+            display:none;
+          }
+        }
+        input#switchLangue:checked + label ~ .ligne1{
+          .html{
+            display:none;
+          }
+          .photoshop{
+            display:none;
+          }
+          .android{
+            display:none;
+          }
+          .photo{
+            display:none;
+          }
+         }
+        input#switchAutre:checked + label ~ .ligne1{
+          .html{
+            display:none;
+          }
+          .android{
+            display:none;
+          }
+          .anglais{
+            display:none;
+          }
+          .francais{
+            display:none;
+          }
+        }
+      }
+
+      #experiences_pros {
+        .flip {
+          display: flex;
+          justify-content: center;
+          .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+
+            .flip-card-inner {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              transition: transform 0.8s;
+              transform-style: preserve-3d;
+
+              .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+              }
+
+              .flip-card-front {
+                background-color: lightslategrey;
+                color: black;
+                border-radius: 2%;
+
+
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+              }
+
+              .flip-card-back {
+                background-color: violet;
+                color: black;
+                border-radius: 2%;
+                transform: rotateY(180deg);
+                filter: invert(100%);
+              }
+            }
+          }
+
+          .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+
+      #formations{
+        .flip {
+          display: flex;
+          justify-content: center;
+          .flip-card {
+            background-color: transparent;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+
+            .flip-card-inner {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              transition: transform 0.8s;
+              transform-style: preserve-3d;
+
+              .flip-card-front, .flip-card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+              }
+
+              .flip-card-front {
+                background-color: blueviolet;
+                color: black;
+                border-radius: 2%;
+
+
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+              }
+
+              .flip-card-back {
+                background-color: pink;
+                color: black;
+                border-radius: 2%;
+                transform: rotateY(180deg);
+                filter: invert(100%);
+              }
+            }
+          }
+
+          .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+  }
+}
+
+footer{
+   bottom: 0;
+   background-color: lightgrey;
+   text-align: center;
+   width: 100%;
+ }

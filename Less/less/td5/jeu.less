@@ -1,0 +1,199 @@
+/*parametres*/
+
+@bleuC: rgb(52, 152, 219);
+@bleuF: rgb(41, 128, 185);
+
+@ar: arial, helvetica, sans-serif;
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 80%;
+
+  .titre {
+    background: @bleuF;
+    padding-left: 10px;
+
+    h1 {
+      font: bold 30pt @ar;
+      color: white;
+
+    }
+  }
+
+  nav {
+    background: @bleuC;
+
+    ul {
+      display: flex;
+      justify-content: start;
+      margin: 0;
+      height: 50px;
+
+
+      li {
+        list-style: none;
+        margin-right: 30px;
+
+        a {
+          text-decoration: none;
+          color: white;
+          display: flex;
+          height: 100%;
+          align-items: center;
+          position: relative;
+
+          &.active, &:hover {
+            &:after {
+              content: " ";
+              position: absolute;
+              bottom: 0;
+              height: 3px;
+              width: 100%;
+              background: white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    #table {
+      margin: 20px;
+      .cellule{
+        display: flex;
+        .switch{
+          max-height: 0;
+          max-width: 0;
+          margin: 10px;
+          position: absolute;
+          user-select: none;
+          opacity: 0;
+          //visibility: hidden;
+        }
+
+        label{
+          width: 100px;
+          height: 100px;
+          user-select: none;
+          margin:5px 10px;
+          color: transparent;
+          text-align: center;
+          //background-color: black;
+          background-image: url(./img/doscarte.webp);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+
+
+
+        }
+
+        .switch#b1:checked + label{
+          background-image: url(./img/pomme.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b2:checked + label{
+          background-image: url(./img/raisin.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b3:checked + label{
+          background-image: url(./img/pomme.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b4:checked + label{
+          background-image: url(./img/noix_de_coco.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b5:checked + label{
+          background-image: url(./img/banane.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b6:checked + label{
+          background-image: url(./img/orange.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b7:checked + label{
+          background-image: url(./img/mure.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b8:checked + label{
+          background-image: url(./img/amande.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b9:checked + label{
+          background-image: url(./img/fraise.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b10:checked + label{
+          background-image: url(./img/amande.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b11:checked + label{
+          background-image: url(./img/banane.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b12:checked + label{
+          background-image: url(./img/fraise.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b13:checked + label{
+          background-image: url(./img/raisin.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b14:checked + label{
+          background-image: url(./img/noix_de_coco.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b15:checked + label{
+          background-image: url(./img/mure.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+
+        .switch#b16:checked + label{
+          background-image: url(./img/orange.png);
+          background-repeat: no-repeat;
+          background-size: 100px 100px;
+        }
+      }
+    }
+  }
+}
+
+
+footer{
+   bottom: 0;
+   background-color: lightgrey;
+   text-align: center;
+   width: 100%;
+ }

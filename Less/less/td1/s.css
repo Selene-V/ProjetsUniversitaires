@@ -1,0 +1,25 @@
+body label.required:after {
+  content: "*";
+  color: red;
+}
+body input [type="checkbox"].switch + label {
+  display: block;
+  background-color: #2980b9;
+  width: 80px;
+  height: 35px;
+  position: relative;
+}
+body input [type="checkbox"].switch:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 35px;
+  background-color: yellow;
+  border-radius: 3px;
+}
+body input [type="checkbox"]:checked + label:after {
+  background-color: green;
+  left: 50%;
+}

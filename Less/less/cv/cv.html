@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<link href="cv.css" rel="stylesheet" type="text/css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mon CV</title>
+</head>
+<body>
+
+<div class="titre">
+    <h1>HTML5 / CSS3</h1>
+</div>
+
+<nav>
+    <ul class="menuHorizontal">
+        <li><a href="../td1/index.html">ACCUEIL</a></li>
+        <li><a href="../td2/portefeuille.html">PORTEFEUILLE</a></li>
+        <li><a href="../td3/compteur.html">COMPTEUR</a></li>
+        <li><a href="../td5/jeu.html">JEU</a></li>
+        <li><a href="">MINUTEUR</a></li>
+        <li><a href="../td4/voiture.html">COULEUR</a></li>
+        <li><a href="cv.html" class="active">MON CV</a></li>
+    </ul>
+</nav>
+
+<main>
+    <input type="checkbox" name="switch" id="switch" />
+    <label id="checkbox" for="switch"></label>
+<div id="page">
+    <div class="case" id="nom">
+        <img class="moi" src="img/moi.jpg">
+        <h1>Sélène VIOLA</h1>
+        <h3>Développeur web</h3>
+        <div class="coordonnees">
+            <img src="img/mail.png"> selene.viola9@etu.univ-lorraine.fr
+            <img src="img/logo-telephone.png"> 0606060606
+            <a href="">
+                <img src="img/linkedin.png">
+            </a>
+        </div>
+        <div class="adresse">
+            <img src="img/maison.png"> 18, rue blabla 57000 Metz
+        </div>
+        <div class="permis">
+            <img src="img/voiture.png"> Permis B, véhiculée.
+            <img src="img/moto.png"> Permis A2, véhiculée.
+        </div>
+    </div>
+
+    <div class="case" id="competences">
+        <h1>Compétences</h1>
+        <input type="radio" name="radio" id="switchTout" checked/>
+        <label id="checkTout" for="switchTout">Tout</label>
+
+        <input type="radio" name="radio" id="switchLangage" />
+        <label id="checkLangage" for="switchLangage">Langages</label>
+
+        <input type="radio" name="radio" id="switchLangue" />
+        <label id="checkLangue" for="switchLangue">Langues</label>
+
+        <input type="radio" name="radio" id="switchAutre" />
+        <label id="checkAutre" for="switchAutre">Autre</label>
+
+        <div class="ligne1">
+            <div class="html">
+                    <img src="img/html.png">
+            </div>
+            <div class="photoshop">
+                    <img src="img/photoshop.png">
+            </div>
+            <div class="android">
+                    <img src="img/android.png">
+            </div>
+            <div class="anglais">
+                    <img src="img/angleterre.png">
+            </div>
+            <div class="francais">
+                    <img src="img/france.png">
+            </div>
+            <div class="photo">
+                    <img src="img/appareil_photo.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="case" id="experiences_pros">
+        <h1>Expériences professionnelle</h1>
+        <div class="flip">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/leader.png" alt="Leader">
+                        <h2>LEADER PRICE</h2>
+                        <h3>Metz, 2017</h3>
+                        <h4>CDD</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>LEADER PRICE</h2>
+                        <p>Mise en rayon époustouflante.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/mcdo.png" alt="MCDO">
+                        <h2>MCDO</h2>
+                        <h3>Metz, 2018-2019</h3>
+                        <h4>CDI</h4>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>MCDO</h2>
+                        <p>Grosse promotion depuis leader price ! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="case flip_case" id="formations">
+        <h1>Formations</h1>
+        <div class="flip">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/bac.png" alt="bac">
+                        <h2>BAC L</h2>
+                        <h3>Nancy, 2015</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>BAC L</h2>
+                        <p>Coin lecture pendant 1 an.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/agglo.png" alt="agglo">
+                        <h2>BTS Travaux public</h2>
+                        <h3>Marseille, 2016</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>BTS Travaux public</h2>
+                        <p>Pas grand chose !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/cap_coiffure.png" alt="cap">
+                        <h2>CAP Coiffure</h2>
+                        <h3>Paris, 2017</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>CAP Coiffure</h2>
+                        <p>Jolies coupes!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="case" id="hobbies">
+        <h1>Hobbies</h1>
+        <ul>
+            <li>Par ce temps de confinement, penser à ce que l'on pouvait faire avant</li>
+            <li>Se sentir comme un criminel si on sort 1h05 dans la rue</li>
+            <li>Aller faire des courses pour prendre l'air</li>
+        </ul>
+    </div>
+</div>
+</main>
+
+
+</body>
+<footer>
+    © Sélène VIOLA Licence pro
+</footer>
+</html>

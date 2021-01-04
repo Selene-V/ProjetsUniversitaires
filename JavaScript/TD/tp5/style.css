@@ -1,0 +1,16 @@
+body table {
+  display: none;
+  border-collapse: collapse;
+}
+body table th {
+  color: forestgreen;
+  background-color: lightgrey;
+  text-align: center;
+}
+body table td {
+  text-align: center;
+}
+body #bouton {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

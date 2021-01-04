@@ -1,0 +1,69 @@
+/*parametres*/
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 80%;
+}
+body .titre {
+  background: #2980b9;
+  padding-left: 10px;
+}
+body .titre h1 {
+  font: bold 30pt arial, helvetica, sans-serif;
+  color: white;
+}
+body nav {
+  background: #3498db;
+}
+body nav ul {
+  display: flex;
+  justify-content: start;
+  margin: 0;
+  height: 50px;
+}
+body nav ul li {
+  list-style: none;
+  margin-right: 30px;
+}
+body nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+body nav ul li a.active:after,
+body nav ul li a:hover:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+body .page input {
+  /* removes default styling from input color element */
+  padding: 0;
+  border: none;
+  /* makes input (color swatch) 100% size of container */
+  position: absolute;
+  width: 1024px;
+  height: 576px;
+  /* mix blend mode makes the color of the swatch alter the image behind it. */
+  mix-blend-mode: hue;
+  /* try screen, multiply or other blend modes for different effects */
+  cursor: pointer;
+}
+body .page img {
+  width: 1024px;
+  object-fit: cover;
+}
+footer {
+  bottom: 0;
+  background-color: lightgrey;
+  text-align: center;
+  width: 100%;
+}
+/*# sourceMappingURL=voiture.css.map */

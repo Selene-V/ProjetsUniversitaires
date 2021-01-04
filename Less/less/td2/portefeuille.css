@@ -1,0 +1,189 @@
+/*parametres*/
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+body .titre {
+  background: #2980b9;
+  padding-left: 10px;
+}
+body .titre h1 {
+  font: bold 30pt arial, helvetica, sans-serif;
+  color: white;
+}
+body nav {
+  background: #3498db;
+}
+body nav ul {
+  display: flex;
+  justify-content: start;
+  margin: 0;
+  height: 50px;
+}
+body nav ul li {
+  list-style: none;
+  margin-right: 30px;
+}
+body nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+body nav ul li a.active:after,
+body nav ul li a:hover:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: white;
+}
+body .page input[type=checkbox] {
+  height: 0;
+  width: 0;
+}
+body .page #checkbox {
+  cursor: pointer;
+  width: 75px;
+  height: 37.5px;
+  left: 10px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+body .page #checkbox:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.2s;
+}
+body .page #switch:checked + #checkbox {
+  background: greenyellow;
+}
+body .page #switch:checked + #checkbox:after {
+  transform: translateX(100%);
+}
+body .page #checkbox:active:after {
+  width: 50px;
+}
+body .page #switch ~ .cartes .carte_Pinterest {
+  top: 40%;
+}
+body .page #switch ~ .cartes .carte_Github {
+  top: 50%;
+}
+body .page #switch ~ .cartes .carte_Facebook {
+  top: 60%;
+}
+body .page #switch ~ .cartes .carte_LinkedIn {
+  top: 70%;
+}
+body .page #switch ~ .cartes .carte_Twitter {
+  top: 80%;
+}
+body .page #switch ~ .cartes .carte_GoogleP {
+  top: 90%;
+}
+body .page #switch:checked ~ .cartes .carte_Pinterest {
+  transform: rotate(-30deg);
+}
+body .page #switch:checked ~ .cartes .carte_Github {
+  transform: rotate(-20deg);
+}
+body .page #switch:checked ~ .cartes .carte_Facebook {
+  transform: rotate(-15deg);
+}
+body .page #switch:checked ~ .cartes .carte_LinkedIn {
+  transform: rotate(-8deg);
+}
+body .page #switch:checked ~ .cartes .carte_Twitter {
+  transform: rotate(-1deg);
+}
+body .page #switch:checked ~ .cartes .carte_GoogleP {
+  transform: rotate(4deg);
+}
+body .page #switch ~ .cartes .c:hover {
+  transform: translate(-130px, 0);
+}
+body .page #switch:checked ~ .cartes .c:hover ~ .c {
+  transform: rotate(60deg);
+}
+body .page .cartes {
+  position: absolute;
+  list-style: none;
+  width: 200px;
+  height: 310px;
+  left: 30%;
+  top: 10%;
+  margin: 30px auto 0 auto;
+  backface-visibility: hidden;
+}
+body .page .cartes .c {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  text-align: center;
+  transform-origin: 90% 95%;
+  transition: 0.5s;
+}
+body .page .cartes .c .contenu {
+  text-decoration: none;
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+}
+body .page .cartes .c .contenu img {
+  width: 150px;
+  margin: 10%;
+  margin-top: 20%;
+  opacity: 0.8;
+  background-color: white;
+  border-radius: 50%;
+}
+body .page .cartes .c .contenu .lab {
+  margin-top: 10%;
+  font-size: 30px;
+  font-family: "Constantia", serif;
+}
+body .page .cartes .contenu:hover {
+  opacity: 1;
+}
+body .page .cartes .carte_Pinterest {
+  background-color: #e60023;
+}
+body .page .cartes .carte_Github {
+  background-color: #24292e;
+}
+body .page .cartes .carte_Facebook {
+  background-color: #3578E5;
+}
+body .page .cartes .carte_LinkedIn {
+  background-color: #0073b1;
+}
+body .page .cartes .carte_Twitter {
+  background-color: #1da1f2;
+}
+body .page .cartes .carte_GoogleP {
+  background-color: #d6492e;
+}
+footer {
+  bottom: 0;
+  background-color: lightgrey;
+  text-align: center;
+  width: 100%;
+}
+/*# sourceMappingURL=portefeuille.css.map */
