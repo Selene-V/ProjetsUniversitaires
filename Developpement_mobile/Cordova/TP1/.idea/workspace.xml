@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="34fc5a62-a6ff-414b-812d-6af44e2d80f6" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../TP1\exportToHTML" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>page-sectionP</find>
+      <find>portfolio</find>
+      <find>col-lg-4</find>
+      <find>container-fluid</find>
+      <find>img</find>
+      <find>background-color</find>
+      <find>.container</find>
+      <find>.nav-item</find>
+      <find>nav-item</find>
+      <find>navbar</find>
+      <find>90</find>
+      <find>60</find>
+      <find>texte</find>
+      <find>motofan</find>
+      <find>item</find>
+      <find>qui</find>
+      <find>img-fluid</find>
+      <find>portfolioAm</find>
+      <find>am</find>
+      <find>la s</find>
+      <find>mas</find>
+      <find>im</find>
+      <find>descrip</find>
+      <find>container</find>
+      <find>img-flui</find>
+      <find>no-gutt</find>
+      <find>mast</find>
+      <find>Am</find>
+      <find>logo.png</find>
+      <find>mt-5</find>
+    </findStrings>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="635" />
+    <option name="width" value="1290" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectId" id="1k1UUX1vUKO9Wt3IZAY3b3CsBlj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zezed\Desktop\Appli_Mobile\TP1\www\js" />
+      <recent name="C:\Users\zezed\Desktop\Appli_Mobile\TP1\www\img" />
+      <recent name="C:\Users\zezed\Desktop\Appli_Mobile\TP1\www\css" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="34fc5a62-a6ff-414b-812d-6af44e2d80f6" name="Default Changelist" comment="" />
+      <created>1580896764778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580896764778</updated>
+    </task>
+    <servers />
+  </component>
+</project>

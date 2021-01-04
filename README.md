@@ -1,7 +1,7 @@
 # ProjetsUniversitaires
 
-Vous trouverez ici quelques uns de mes TP/TD et de mes projets réalisés DUT informatique
-et en LP Développeur web et mobile
+Vous trouverez ici quelques uns de mes TP/TD et de mes projets réalisés en DUT informatique
+et en LP Développeur web et mobile.
 
 --------------------------------------------------------------------------------------------
 /Developpement_mobile
