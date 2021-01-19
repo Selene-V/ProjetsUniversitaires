@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' *" charset="UTF-8" >
+        <title>Quizz duo</title>
+        <link href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../style/question.css">
+        <link rel="stylesheet" href="../style/quiz_duo.css">
+
+    </head>
+    <body class="d-flex flex-column h-100">
+
+        <div id="nav" class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+                <a class="navbar-brand" href="loggedIn.html">DuelQuizz</a>
+                <button class="navbar-toggler custom-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- url('https://mdbootstrap.com/img/svg/hamburger8.svg?color=FFFFFF'); -->
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="loggedIn.html">Accueil<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <input type="button" class="btn btn-primary" id="logout" value="Déconnexion">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <div id="main" class="container-fluid">
+            <div id="selectionTheme" class="container-fluid align-content-center">
+                <h1>Quizz Duel</h1>
+                <select id="selectTheme">
+                    <option value="null" selected>Choix du thème</option>
+                </select>
+                <small id="themeHelp">Vous devez choisir un thème !</small>
+                <div class="justify-content-start">
+                    <input type="button" class="btn btn-primary" id="validate" value="Valider">
+                </div>
+            </div>
+
+            <div id="waiting">
+                <h1>
+                    Votre adversaire répond à la question<br>
+                    Veuillez patienter !
+                </h1>
+
+            </div>
+
+            <div id="quiz">
+                <h1 id="theme"></h1>
+                <form>
+                    <h4 id="labelQuestion">Question 1</h4>
+                    <progress value="0" max="10" value="10" id="countdown"></progress>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="bouton" type="radio" name="questionsOptions" id="inlineRadio11" value="option1">
+                            <label class="form-check-label" for="inlineRadio11" id="label11">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="bouton" type="radio" name="questionsOptions" id="inlineRadio12" value="option2">
+                            <label class="form-check-label" for="inlineRadio12" id="label12">2</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="bouton" type="radio" name="questionsOptions" id="inlineRadio21" value="option3">
+                            <label class="form-check-label" for="inlineRadio21" id="label21">3</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="bouton" type="radio" name="questionsOptions" id="inlineRadio22" value="option4">
+                            <label class="form-check-label" for="inlineRadio22" id="label22">4</label>
+                        </div>
+                    </div>
+                    <small id="choixHelp">Veuillez selectionner une réponse !</small>
+                    <div class="justify-content-start">
+                        <input type="button" class="btn btn-primary" id="validation-question" value="Valider">
+                    </div>
+                </form>
+            </div>
+
+            <div id="results">
+                <h1>Fin du quizz !!</h1>
+                <h4> Vous avez répondu juste à <b id="score"></b>/4 </h4>
+                <h4 id="resultDisplay"></h4>
+                <div class="justify-content-start">
+                    <a class="btn btn-primary" id="menu" href="./loggedIn.html">Retour à l'accueil</a>
+                </div>
+            </div>
+        </div>
+
+        <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../environement.local.js"></script>
+        <script src="../js/deconnection.js"></script>
+        <script src="../js/quizz_duo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+!! Ne pas mettre de query ET de mutation en meme temps !!
+
+!! Ne pas oublier de lancer le serveur et de le relancer à chaque modifications!!
+
+Puis aller sur http://127.0.0.1:4000/api
+
+QUERY :
+query{
+  Age(age:28)
+  Hello
+  User(id: 1){
+    id
+    firstName
+    lastName
+  }
+
+  Users {
+    id
+    firstName
+    lastName
+  }
+}
+
+MUTATIONS :
+mutation{
+  DeleteUser(id: 1)
+}
+
+mutation{
+  CreateUser(data: {
+    firstName: "John",
+    lastName: "Doe"
+  }){
+    id
+    lastName
+  }
+}

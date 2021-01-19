@@ -1,0 +1,33 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+
+
+#main{
+  margin-top: 100px;
+  
+}
+
+#leaderboard{
+  margin-top: 50px;
+}
+.navbar-dark button.navbar-toggler{
+  border-style: none;
+}
+.navbar-dark span.navbar-toggler-icon {
+  background-image: url('../image/hamburger8.svg');
+}
+
+small{
+  color: red;
+  font-weight: bold;
+  display: none;
+  margin-bottom: 5px;
+}
+
+select{
+  margin-bottom: 10px;
+}

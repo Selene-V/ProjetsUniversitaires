@@ -3,11 +3,15 @@
 Vous trouverez ici quelques uns de mes TP/TD et de mes projets réalisés en DUT informatique
 et en LP Développeur web et mobile.
 
+MISES A JOUR REGULIERES DU DEPOT EN FONCTION DES PROJETS ET DES COURS TERMINES
+
+A venir : Reactjs
+
 --------------------------------------------------------------------------------------------
 /Developpement_mobile
 	/Android (LP)
 	- Projet android pour réaliser une application de vente en ligne de pulls et
-	autres accessoires.
+	autres accessoires. (pas encore terminé, maj à venir)
 
 	/Cordova (DUT)
 		/TP1
@@ -18,6 +22,9 @@ et en LP Développeur web et mobile.
 
 	/Flutter (DUT)
 	- application mobile : reprise d'un template de todo list + modification pour découvrir le langage Flutter
+
+/graphql (LP)
+- TP découverte de graphql
 
 /JavaScript
 	/TD (LP)
@@ -33,12 +40,15 @@ et en LP Développeur web et mobile.
 /Photoshop (LP)
 - Dossiers de tous les TP réalisés en cours
 
-/PHP (LP)
-- Projet php : réaliser le back end de notre projet tutoré DuelQuiz
+/Projet_Tutores (LP)
+	/projetTutore1
+	- Dans ce projet, nous avons réalisé un jeu de type quiz. Nous avons la possibilité de jouer seul ou
+	en duel avec un deuxième joueur.
+
+	Il regroupe 3 projets :
+	- Un projet PHP => réaliser le backoffice
+	- Un projet WebService => réaliser l'API
+	- Un projet tutoré => réaliser le frontend
 
 /Symfony (LP)
 - Tous les tp réalisés jusqu'à présent (puis projet à venir)
-
-/Web_Services (LP)
-- Projet web services : réaliser l'API de notre projet tutoré DuelQuiz
-

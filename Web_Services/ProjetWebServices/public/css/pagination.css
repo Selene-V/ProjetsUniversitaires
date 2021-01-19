@@ -1,6 +1,0 @@
-tbody tr:nth-child(n+21){
-    display: none;
-}
-div #button-container a{
-    margin: 10px;
-}

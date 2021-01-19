@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' * 'unsafe-inline'" charset="UTF-8" >
+    <title>Test Duel Quizz</title>
+    <link href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/index.css">
+</head>
+<body>
+    <select id="selectTheme">
+    </select>
+    <button id="validate">choisir le theme</button>
+    <script>
+        const select = document.getElementById('selectTheme');
+        const validate = document.getElementById('validate');
+        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9wcm9qZXRxdWl6ejo4MTgxIiwiYXVkIjoiaHR0cDpcL1wvcHJvamV0cXVpeno6ODE4MSIsImlhdCI6MTYwOTk0MzQzMSwiZXhwIjoxNjEwMDI5ODMxLCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSJ9.hPA682Fux2Ky1YdyDQWoeMFPziIBYRS88FWUG6RHEN5x8yVJa6zcVeNPQnxjbkJ-DQ_nfB_0BtVnYMOucV_rAHC6i_bgIjO3hXwuHJjJziaP-7MZy0xh-WzX6tzpFGWThYRZsdTF5CyaHX5ukC5N1rCXWavkMwPLQ6fZamCdm5j2xnzP1pAyfOKr1zAidNKgwKCuQ-CzjVcM9OS9222lhFyLZleNROxakLtIokD4nXMBDnzANRmPKOfi5KBgJ-WCH1zmD4OLyfQj2pAaflPI897WV5zZ1J841jRN45Vz8XHE7WK7DF5s6G04V5muCKEHUAU68BTzDsOmIzmR_FWLnQ";
+        var socket = null;
+        var turn = 0;
+
+        window.addEventListener("load", ()=>{
+            setThemes();
+            
+            socket = new WebSocket('ws://127.0.0.1:8889/');
+
+            socket.addEventListener("open", ()=>{
+                console.log('connection is opened. Waiting for messages!');
+    
+                socket.send(JSON.stringify({
+                    type: "connect",
+                    user_id: 15
+                }));
+            });
+
+            socket.addEventListener("message", (msg)=>{
+                data = JSON.parse(msg.data);
+                
+                switch(data.type){
+                    case 'connect':
+                        console.log('Conection established : ', data.message?'true' : 'false');
+                    break;
+                    case 'no_player':
+                        saveQuestions(data.message);
+                    break;
+                    case 'starting_first':
+                        console.log("Quiz started, your turn");
+                        saveQuestions(data.questions);
+                        responding(data.questions[0]);
+                    break;
+                    case 'starting_second':
+                        console.log("Quiz started, waiting for other player");
+                        saveQuestions(data.questions);
+                        wait();
+                    break;
+                    case 'need_to_wait':
+                        console.log("waiting for other player");
+                        wait();
+                    break;
+                    case 'need_to_respond':
+                        console.log("your turn");
+                        responding(data.question);
+                    default:
+                        console.log('message recieved : ', data);
+                    break;
+                }
+                
+            });
+
+            socket.addEventListener("close", ()=>{
+                console.log('connection is closed!');
+            });
+
+            socket.addEventListener("error", (error)=>{
+                console.log('An error as occured: ', error.data);
+            });
+        });
+
+        async function setThemes(){
+            let themes = await fetchthemes();
+
+            console.log(themes);
+            themes.forEach((theme,index) => {
+                let option = document.createElement('option');
+                option.value = theme.id;
+                option.innerText = theme.nom;
+                if(index === 0){
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            });
+        }
+
+        async function fetchthemes(){
+            let response = await fetch('http://quizzapi:8181/api/themes/'+token,{
+                method:'GET',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Cross-Origin-Resource-Policy': 'cross-origin'
+                }
+            });
+
+            let json = await response.json();
+
+            return json;
+        }
+
+        async function answering(){
+
+        }
+
+        function saveQuestions(questions){
+            console.log(questions);
+        }
+
+        function responding(question){
+            console.log(question);
+        }
+
+        function wait(){
+
+        }
+
+        validate.addEventListener('click', ()=>{
+            socket.send(JSON.stringify({
+                type: "quizz_duel_start",
+                user_id: 1,
+                questions: [
+                    {label: "salut",
+                    answers: [
+                        {label: "oui"},
+                        {label: "non"},
+                        {label: "peut-etre"},
+                        {label: "alors là..."},
+                    ]},
+                    {label: ":(",
+                        answers: [
+                            {label: "oui"},
+                            {label: "non"},
+                            {label: "peut-etre"},
+                            {label: "alors là..."},
+                        ]},
+                    {label: ":)",
+                        answers: [
+                            {label: "oui"},
+                            {label: "non"},
+                            {label: "peut-etre"},
+                            {label: "alors là..."},
+                        ]},
+                    {label: ">:o",
+                        answers: [
+                        {label: "oui"},
+                        {label: "non"},
+                        {label: "peut-etre"},
+                        {label: "alors là..."},
+                    ]}
+                ]    
+            }));
+        });
+    </script>
+</body>
+</html>

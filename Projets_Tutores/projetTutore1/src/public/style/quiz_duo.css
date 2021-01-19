@@ -1,0 +1,7 @@
+#quiz,#results,#waiting{
+    display: none;
+}
+
+#waiting{
+    text-align: center;
+}
