@@ -40,14 +40,18 @@ A venir : Reactjs
 /Photoshop (LP)
 - Dossiers de tous les TP réalisés en cours
 
-/Projet_Tutores (LP)
+/PHP_WEB_Service (LP)
+	/projetWebServices
+	- Partie backoffice et partie API du projet tutoré 1 (voir Projets_Tutores/projetTutore1)
+
+/Projets_Tutores (LP)
 	/projetTutore1
 	- Dans ce projet, nous avons réalisé un jeu de type quiz. Nous avons la possibilité de jouer seul ou
 	en duel avec un deuxième joueur.
 
 	Il regroupe 3 projets :
-	- Un projet PHP => réaliser le backoffice
-	- Un projet WebService => réaliser l'API
+	- Un projet PHP => réaliser le backoffice (voir PHP_WEB_SERVICE/projetWebServices)
+	- Un projet WebService => réaliser l'API (voir PHP_WEB_SERVICE/projetWebServices)
 	- Un projet tutoré => réaliser le frontend
 
 /Symfony (LP)
