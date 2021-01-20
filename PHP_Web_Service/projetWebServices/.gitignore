@@ -1,0 +1,6 @@
+.idea
+.vs
+vendor
+var/cache
+*.local.*
+composer.phar

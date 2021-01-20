@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "b276ec4c-59a8-4f70-aedb-bb4cc94b23e7",
+		"name": "Projet WebService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create user JSON",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"testinscrip0\",\r\n    \"firstName\": \"testFirstname0\",\r\n    \"lastName\": \"testLastname0\",\r\n    \"email\": \"test@testtt0.com\",\r\n    \"point\": 0,\r\n    \"password\": \"mdp123456?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/user/inscription",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"inscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user XML",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<user>\r\n    <username>testXML</username>\r\n    <firstName>testFirstname</firstName>\r\n    <lastName>testLastname</lastName>\r\n    <email>selene.viola9@etu.univ-lorraine.fr</email>\r\n    <point>0</point>\r\n    <password>mdp123456</password>\r\n</user>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/user/inscription",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"inscription"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify loggin",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/user/loggedIn/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"loggedIn",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "selene.viola9@etu.univ-lorraine.fr",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Azerty1?",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/api/user/login",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/user/list/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"list",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User By email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/user?emailUser=gb@gmail.com",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "emailUser",
+									"value": "gb@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User By Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/user?usernameUser=testmail1",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "usernameUser",
+									"value": "testmail1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"item": [
+				{
+					"name": "Get Questions par Theme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/questions/{{token}}?themeID=16",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								"{{token}}"
+							],
+							"query": [
+								{
+									"key": "themeID",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Questions par Quizz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/questions/{{token}}?quizzID=1",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								"{{token}}"
+							],
+							"query": [
+								{
+									"key": "quizzID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/questions/{{token}}?=",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"questions",
+								"{{token}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quizz",
+			"item": [
+				{
+					"name": "answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idQuestion\": 44,\r\n    \"selectedAnswer\": 17,\r\n    \"user\": 3,\r\n    \"idQuiz\": 1\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/answerQuestion/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"answerQuestion",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "finish Quiz",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mode\":1,\r\n    \"user1\":1,\r\n    \"user2\":3,\r\n    \"quizz\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/finish/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"finish",
+								"{{token}}"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "user1",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "user2",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "quizz",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quizz duel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "idTheme",
+									"value": "16",
+									"type": "text"
+								},
+								{
+									"key": "mode",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "user1",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "user2",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://{{url}}/api/quizz/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"quizz",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quizz solo XML",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<quizz>\r\n    <idTheme>16</idTheme>\r\n    <mode>0</mode>\r\n    <user1>5</user1>\r\n</quizz>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/quizz/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"quizz",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Quizz solo JSON",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idTheme\": 16,\r\n    \"mode\": 0,\r\n    \"user1\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/api/quizz/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"quizz",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Theme",
+			"item": [
+				{
+					"name": "Get All themes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/themes/{{token}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"themes",
+								"{{token}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One theme",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/api/themes/{{token}}?themeID=17",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"themes",
+								"{{token}}"
+							],
+							"query": [
+								{
+									"key": "themeID",
+									"value": "17"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "quizzapi:8181"
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9wcm9qZXRxdWl6ejo4MTgxIiwiYXVkIjoiaHR0cDpcL1wvcHJvamV0cXVpeno6ODE4MSIsImlhdCI6MTYwOTY3MDk5NSwiZXhwIjoxNjA5NzU3Mzk1LCJlbWFpbCI6ImVtYWlsQGVtYWlsLmNvbSJ9.cBOGnbvnQejbZDs0wr4lbpHcG1wUcJOOr7HVSKwO6-eXOTgL3UXFBhTb-ciSGQMsCHRmM_701w_lmv2kaNMOmgZ4MNuc9WYeb1Gv7aPLalq2yNaIIwfOJyvowsxCOhJWBPpwtIYnJPiZI2Bb1atj95OgruWi45z1Oc7cPEbAgh8iUeyW91ZbvUuTsiLRuVqsbSWZmqSoZ_4eNmyPSQwiTt7chv8dRzt3-DCJMt3Qg9GYtCAzdIYj5bzaRCfBZhu5L5fSAcPWiXkOq-bJcC-9sjS34sdBYL0zwPFsowr41Ugo2cS9zWtuorjvZKxOgl6kXYpKd6l3APoZJIEN-9X0OQ"
+		}
+	]
+}

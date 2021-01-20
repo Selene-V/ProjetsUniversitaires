@@ -1,0 +1,85 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Liste des administrateurs{% endblock %}
+
+{% block css %}
+    <link href="/css/pagination.css" rel="stylesheet">
+{% endblock %}
+
+{% block navbar %}
+        <li class="nav-item">
+            <a class="nav-link" href="/connexion-admin">Deconnexion<span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Liste Administrateurs <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/users">Liste Utilisateurs <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/themes">Liste Thèmes <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/questions">Liste Questions <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/quizz">Liste Quiz <span class="sr-only"></span></a>
+        </li>
+    {% endblock %}
+{% block body %}
+
+    
+
+    <p class="text-center">
+        <a href="/admin" class="btn btn-success">Nouvel administrateur</a>
+    </p>
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom d'utilisateur</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date de création</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for admin in admins %}
+                <tr scope="row">
+                    <th scope="col">{{ admin.id }}</th>
+                    <td scope="col">{{ admin.getUsername |capitalize }}</td>
+                    <td scope="col">{{ admin.getFirstName |capitalize }}</td>
+                    <td scope="col">{{ admin.getLastName |capitalize }}</td>
+                    <td scope="col">{{ admin.getEmail }}</td>
+                    <td scope="col">{{ admin.getRegisterAt | date('Y-m-d')}}</td>
+                    <td scope="col">
+                        <a href="/admin/{{ admin.getId }}">modifier</a> -
+                        <a href="#" data-id="{{ admin.getId }}" class="delete-admin">supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div id="button-container">
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/delete.js"></script>
+    <script src="/js/pagination.js"></script>
+{% endblock %}

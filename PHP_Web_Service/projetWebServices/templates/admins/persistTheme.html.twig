@@ -1,0 +1,70 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    {% if theme is not null %}
+        Modification de "{{ theme.nom }}"
+    {% else %}
+        Création d'un thème
+    {% endif %}
+
+{% endblock %}
+
+{% block navbar %}
+    <li class="nav-item">
+        <a class="nav-link" href="/connexion-admin">Deconnexion<span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/admins">Liste Administrateurs <span class="sr-only">(current)</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/users">Liste Utilisateurs <span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/themes">Liste Thèmes <span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/questions">Liste Questions <span class="sr-only"></span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="/quizz">Liste Quiz <span class="sr-only"></span></a>
+    </li>
+
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center">{% if theme is not null %}
+            Modification de "{{ theme.nom }}"
+        {% else %}
+            Création d'un thème
+        {% endif %}</h1>
+
+
+    <div class="container">
+
+        {% set formUrl="/theme" %}
+
+        {% if theme is not null %}
+            {% set formUrl="/theme/" ~ theme.id %}
+        {% endif %}
+
+        <form action="{{ formUrl }}" method="post">
+            <div class="form-group">
+                <label for="nom">Nom du thème</label>
+                <input type="text" class="form-control" id="nom" name="nom" value="{% if theme is not null %}{{ theme.nom }}{% endif %}" placeholder="{% if alert.nom is not null %}{{ alert.nom }}{% endif %}">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+{% endblock %}
