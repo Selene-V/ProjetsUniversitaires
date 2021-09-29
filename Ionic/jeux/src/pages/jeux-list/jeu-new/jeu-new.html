@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Création d'un jeu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Visuel</ion-label>
+    <ion-input type="text" [(ngModel)]="jeu.visuel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Nom</ion-label>
+    <ion-input type="text" [(ngModel)]="jeu.nom"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Pays</ion-label>
+    <ion-input type="text" [(ngModel)]="jeu.pays"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Créateur</ion-label>
+    <ion-input type="text" [(ngModel)]="jeu.createur"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Edition</ion-label>
+    <ion-input type="text" [(ngModel)]="jeu.edition"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-input type="text" [(ngModel)]="jeu.date"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Aquis ?</ion-label>
+    <ion-toggle [(ngModel)]="jeu.aquis"></ion-toggle>
+  </ion-item>
+  <ion-item>
+    <ion-label>Résumé</ion-label>
+    <ion-textarea rows="20" [(ngModel)]="jeu.resume"></ion-textarea>
+  </ion-item>
+  <br>
+  <div class="text-center">
+    <button ion-button (click)="onAdd()">Enregistrer</button>
+  </div>
+</ion-content>

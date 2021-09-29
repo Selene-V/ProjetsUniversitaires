@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Erreur{% endblock %}
+
+{% block content %}
+    <h1>Erreur</h1>
+    <p>Une erreur est survenue</p>
+    <img class="error" src="{{ asset('img/errors/error.jpg') }}" alt="Erreur">
+    <p>{{status_code}} : {{status_text}}</p>
+    <p><a href="{{ path('main_homepage') }}">Retourner à la page d'accueil</a></p>
+{% endblock %}

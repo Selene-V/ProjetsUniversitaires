@@ -1,0 +1,49 @@
+<br>
+<div class="jeu">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h3>{{jeuNom}}</h3>
+        Date de sortie : {{jeuDate}}
+        <br>
+        Pays : {{jeuPays}}
+        <br>
+        <br>
+        Créateur : {{jeuCreateur}}
+        <br>
+        Edition : {{jeuEdition}}
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <img class="visuel" [src]="jeuVisuel" alt="Image jdr">
+      <br>
+      <br>
+      <div class="jeuAcquis" *ngIf="jeuAcquis == true">
+        <img src="https://png.pngtree.com/png-vector/20190331/ourlarge/pngtree-bookcase-icon-with-glyph-style--vector-eps10-illustration-png-image_878696.jpg" alt="Jeu acquis">
+      </div>
+      <div class="jeuAcquis" *ngIf="jeuAcquis == false">
+      <img src="data:image/png;base64,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" alt="Jeu non acquis">
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="text-justify">
+        {{jeuResume}}
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <a [routerLink]="['/modif', id]" class="btn btn-warning">M</a>
+    </div>
+    <div class="col-12 col-sm-6">
+      <button class="btn btn-danger" (click)="supr()">X</button>
+    </div>
+  </div>
+</div>

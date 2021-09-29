@@ -33,20 +33,23 @@
     </div>
 
     <div class="row text-center">
-        {% for i in 1..2 %}
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <img src="{{ asset('img/products/shoe-' ~ i ~'.jpg') }}" alt="Nom du produit">
-                    <div class="caption">
-                        <h3>Nom du produit</h3>
-                        <p>Une description courte du produit sera affichée à cet endroit.</p>
-                        <p>
-                            <span class="badge">120,00 €</span>
-{#                            <a href="{{ path('store_show_product', {'id': i, 'slug': 'shoe-' ~ 1 }) }}" class="btn btn-default">Voir la fiche</a>#}
-                            <a href="#" class="btn btn-default">Voir la fiche</a>
-                        </p>
-                    </div>
-                </div>
+        {% for product in fourLastProduct %}
+            <div class="col-md-4 col-sm-6 hero-feature">
+                {{ include('store/_composant_item_product.html.twig') }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>Les produits les plus populaires</h3>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        {% for product in mostPopularProducts %}
+            <div class="col-md-4 col-sm-6 hero-feature">
+                {{ include('store/_composant_item_product.html.twig') }}
             </div>
         {% endfor %}
     </div>

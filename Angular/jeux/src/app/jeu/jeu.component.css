@@ -1,0 +1,13 @@
+.visuel {
+    width: 125px;
+}
+
+.jeuAcquis img {
+    width: 50px;
+}
+
+.jeu{
+    border: black 1px solid;
+    border-radius: 30px;
+    padding: 20px;
+}

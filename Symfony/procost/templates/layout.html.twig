@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+    <!-- Navbar -->
+    <header class="app-header"><a class="app-header__logo" href="{{ path('main_index') }}">Procost</a>
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <!-- Navbar Right Menu-->
+        <ul class="app-nav">
+            <li class="app-search">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href="{{ path('app_logout') }}" class="btn btn-info">Se déconnecter</a>
+                {% endif %}
+            </li>
+        </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user">
+            <img class="app-sidebar__user-avatar" src="{{ asset('img/user.jpg') }}" alt="User Image">
+            <div>
+                <p class="app-sidebar__user-name">{{ app.user.employee.prenom|capitalize }} {{ app.user.employee.nom|upper }}</p>
+                {% if is_granted('ROLE_MANAGER') %}
+                    <p class="app-sidebar__user-designation">Manager</p>
+                {% else %}
+                    <p class="app-sidebar__user-designation">Employee</p>
+                {% endif %}
+            </div>
+        </div>
+        {%  set current_route = app.request.attributes.get('_route') %}
+        <ul class="app-menu">
+            <li>
+                <a class="app-menu__item {{ current_route is same as('main_index') ? 'active' }}" href="{{ path('main_index') }}">
+                    <i class="app-menu__icon fa fa-dashboard"></i>
+                    <span class="app-menu__label">Tableau de bord</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item {{ current_route starts with 'project_' ? 'active' }}" href="{{ path('project_list') }}">
+                    <i class="app-menu__icon fa fa-laptop"></i>
+                    <span class="app-menu__label">Projets</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item {{ current_route starts with 'employee_' ? 'active' }}" href="{{ path('employee_list') }}">
+                    <i class="app-menu__icon fa fa-users"></i>
+                    <span class="app-menu__label">Employés</span>
+                </a>
+            </li>
+            <li>
+                <a class="app-menu__item {{ current_route starts with 'metier_' ? 'active' }}" href="{{ path('metier_list') }}">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Métiers</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    {% block content %}{% endblock %}
+
+    <footer class="main-footer">
+        &copy; 2019 - PROCOST
+    </footer>
+
+
+{% endblock %}
+

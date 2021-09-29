@@ -3,15 +3,12 @@
 Vous trouverez ici quelques uns de mes TP/TD et de mes projets réalisés en DUT informatique
 et en LP Développeur web et mobile.
 
-MISES A JOUR REGULIERES DU DEPOT EN FONCTION DES PROJETS ET DES COURS TERMINES
-
-A venir : Reactjs
 
 --------------------------------------------------------------------------------------------
 /Developpement_mobile
 	/Android (LP)
 	- Projet android pour réaliser une application de vente en ligne de pulls et
-	autres accessoires. (pas encore terminé, maj à venir)
+	autres accessoires. (panier non fonctionnel, non codé par moi)
 
 	/Cordova (DUT)
 		/TP1
@@ -54,5 +51,22 @@ A venir : Reactjs
 	- Un projet WebService => réaliser l'API (voir PHP_WEB_SERVICE/projetWebServices)
 	- Un projet tutoré => réaliser le frontend
 
+	/projetTutore2Backend
+	- Ce projet est divisé en deux dépôt git, un dépôt contenant le côté Back end, et un dépôt contenant
+	le côté front
+	J'ai travaillé sur le côté back
+	Ce projet utilise elastic search
+
+/Angular (LP)
+	- Tps pour apprendre les bases d'Angular
+
+/Ionic (LP)
+	- Tps pour apprendre les bases d'Ionic
+
+
 /Symfony (LP)
-- Tous les tp réalisés jusqu'à présent (puis projet à venir)
+	/shoefony
+	- Projet pour apprendre Symfony en réalisant un site de vente de chaussures
+
+	/procost
+	- Projet final

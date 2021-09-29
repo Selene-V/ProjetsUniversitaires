@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Liste des jeux</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Création d'un nouveau jeu</h2>
+  <div class="text-center">
+    <button ion-button (click)="onGoToCreate()">Création</button>
+  </div>
+    <h2>Liste des jeux</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let jeu of jeux">
+        <ion-list (click)="onGoToJeu(jeu.data.nom, jeu.id)">
+          <ion-item>
+            <img [src]="jeu.data.visuel" [alt]="jeu.data.nom">
+          </ion-item>
+          <ion-item>
+            {{jeu.data.nom}}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

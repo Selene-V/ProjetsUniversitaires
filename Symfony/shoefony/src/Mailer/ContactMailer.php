@@ -11,12 +11,19 @@ use Twig\Environment;
 
 class ContactMailer
 {
+
     private const TEMPLATE = 'email/contact.html.twig';
 
     private string $contactEmailAddress;
     private MailerInterface $mailer;
     private Environment $twig;
 
+    /**
+     * ContactMailer constructor.
+     * @param MailerInterface $mailer
+     * @param Environment $twig
+     * @param string $contactEmailAddress
+     */
     public function __construct(MailerInterface $mailer, Environment $twig, string $contactEmailAddress)
     {
         $this->mailer = $mailer;
@@ -26,6 +33,13 @@ class ContactMailer
         //dd($mailer, $twig, $contactEmailAddress);
     }
 
+    /**
+     * @param Contact $contact
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
     public function send(Contact $contact): void
     {
         $email = (new Email())

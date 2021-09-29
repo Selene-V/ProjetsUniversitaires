@@ -1,0 +1,99 @@
+<div class="row change" *ngIf="change">
+  <div class="col-12">
+      Le jeu a bien été enregistrés
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <div class="form-group">
+      <label>Nom</label>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="jeu.nom">
+    </div>
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class="form-group">
+      <label>Pays de création</label>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="jeu.pays">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <div class="form-group">
+      <label>Créateur</label>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="jeu.createur">
+    </div>
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class="form-group">
+      <label>Edition </label>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="jeu.edition">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <div class="form-group">
+      <label>Visuel</label>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="jeu.visuel">
+    </div>
+  </div>
+  <div class="col-12 col-sm-6">
+    <div class="form-group">
+      <label>Date de sortie</label>
+      <br>
+      <input type="text" class="form-control" [(ngModel)]="jeu.date">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <div class="form-group row">
+      <div class="col-6">
+        <div class="form-check">
+          <input type="radio" name="onAir" class="form-check-input" [value]
+          ="true" [(ngModel)]="jeu.acquis">
+          <label  class="form-check-label">Je l'ai</label>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="form-check">
+          <input type="radio" name="onAir" class="form-check-input" [value]
+          ="false" [(ngModel)]="jeu.acquis">
+          <label  class="form-check-label">Je ne l'ai pas</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="form-group">
+      <label>Résumé</label>
+      <br>
+      <textarea name="synopsis" id="" cols="30" rows="10" class="form-control"
+      [(ngModel)]="jeu.resume"></textarea>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="submit">
+      <button class="btn btn-outline-success" (click)="add()">
+        Envoyer
+      </button>
+    </div>
+  </div>
+</div>

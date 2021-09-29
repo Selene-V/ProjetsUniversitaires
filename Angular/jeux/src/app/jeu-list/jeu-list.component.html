@@ -1,0 +1,17 @@
+<div style="text-align:center">
+<ul class="list-group">
+  <app-jeu *ngFor="let jeu of jeux; let i = index"
+    [jeuNom]="jeu.data.nom"
+    [jeuAcquis]="jeu.data.acquis"
+    [jeuVisuel]="jeu.data.visuel"
+    [jeuPays]="jeu.data.pays"
+    [jeuCreateur]="jeu.data.createur"
+    [jeuEdition]="jeu.data.edition"
+    [jeuDate]="jeu.data.date"
+    [jeuResume]="jeu.data.resume"
+    [index]="i"
+    [id]="jeu.id"
+  >
+  </app-jeu>
+</ul>
+

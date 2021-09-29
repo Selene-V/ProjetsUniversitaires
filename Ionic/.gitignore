@@ -1,0 +1,25 @@
+# idea
+.idea/
+
+# vs
+.vs
+
+.vscode
+
+# Webpack
+.webpack/
+
+# Optional npm cache directory
+.npm
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+.DS_Store
+
+node_modules/
+
+*.ini
+conf\

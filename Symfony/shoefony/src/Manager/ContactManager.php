@@ -4,28 +4,35 @@
 namespace App\Manager;
 
 use App\Entity\Contact;
-use App\Mailer\ContactMailer;
+use App\Event\ContactCreated;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
-class ContactManager
+final class ContactManager
 {
-    private EntityManagerInterface $em;
-    private ContactMailer $contactMailer;
 
-    public function __construct(EntityManagerInterface $em, ContactMailer $contactMailer)
+    private EventDispatcherInterface $eventDispatcher;
+    private EntityManagerInterface $em;
+
+    /**
+     * ContactManager constructor.
+     * @param EventDispatcherInterface $eventDispatcher
+     * @param EntityManagerInterface $em
+     */
+    public function __construct(EventDispatcherInterface $eventDispatcher, EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->contactMailer = $contactMailer;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
+    /**
+     * @param Contact $contact
+     */
     public function insert(Contact $contact)
     {
-        // Etape 1 : On "persiste" l'entité
         $this->em->persist($contact);
-
-        // Etape 2 : On "flush" tout ce qui a été persisté avant
         $this->em->flush();
 
-        $this->contactMailer->send($contact);
+        $this->eventDispatcher->dispatch(new ContactCreated($contact));
     }
 }

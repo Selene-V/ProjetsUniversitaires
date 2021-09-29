@@ -1,0 +1,167 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Tableau de bord - {{ parent() }}{% endblock %}
+
+{% block content %}
+    <main class="app-content">
+        <div class="app-title">
+            <div>
+                <h1><i class="fa fa-dashboard"></i>&nbsp;Tableau de bord</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="widget-small info coloured-icon">
+                            <i class="icon fa fa-spinner fa-3x" aria-hidden="true"></i>
+                            <div class="info">
+                                <p class="text-muted text-sm text-uppercase">Projets en cours</p>
+                                <p><strong>{{ projectsInProgress }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="widget-small warning coloured-icon">
+                            <i class="icon fa fa-check-square-o fa-3x" aria-hidden="true"></i>
+                            <div class="info">
+                                <p class="text-muted text-sm text-uppercase">Projets livrés</p>
+                                <p><strong>{{ projectsDelivered }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="widget-small primary coloured-icon">
+                            <i class="icon fa fa-users fa-3x"></i>
+                            <div class="info">
+                                <p class="text-muted text-sm text-uppercase">Employés</p>
+                                <p><strong>{{ nbEmployees }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="widget-small danger coloured-icon">
+                            <i class="icon fa fa-calendar-check-o fa-3x" aria-hidden="true"></i>
+                            <div class="info">
+                                <p class="text-muted text-sm text-uppercase">Heures de production</p>
+                                <p><strong>{{ nbHeuresProduction }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card text-uppercase">
+                            <div class="card-header text-center">Rentabilité</div>
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    <i class="fa fa-database mr-2 text-primary"></i> {{ (nbProjetsRentables / projectsDelivered * 100)|number_format(2, '.', ',') }}% RENTABLE
+                                </p>
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <canvas id="ratio-chart" class="embed-responsive-item"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card text-uppercase">
+                            <div class="card-header text-center">Taux de livraison</div>
+                            <div class="card-body">
+                                <p class="text-muted">
+                                    <i class="fa fa fa-check-square-o mr-2 text-primary"></i> {{ (projectsDelivered / (projectsDelivered + projectsInProgress) * 100)|number_format(2, '.', ',') }}% Livrés
+                                </p>
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <canvas id="delivered-chart" class="embed-responsive-item"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header text-center text-uppercase">Top employé</div>
+                            <div class="card-body">
+                                <div class="text-center">
+                                    <img src="img/ui-zac.jpg" class="rounded-circle" width="58">
+                                    <p class="mt-2">
+                                        <strong>{{ topEmployee.employee.prenom|capitalize }} {{ topEmployee.employee.nom|upper }}</strong>
+                                    </p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="small mt">EMPLOYÉ DEPUIS</p>
+                                        <p>{{ topEmployee.employee.dateEmbauche|date("d/m/Y") }}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="small mt">COÛT TOTAL</p>
+                                        <p>{{ topEmployee.coutTotal|format_currency('EUR') }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="tile table-responsive">
+                    <h2 class="tile-title">Les derniers projets</h2>
+                    <table class="table table-hover table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>Projet</th>
+                            <th>Date de création</th>
+                            <th>Prix de vente</th>
+                            <th>Coût</th>
+                            <th>Est livré</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for project in fiveLastProjects %}
+                                <tr>
+                                    <th>
+                                        <a href="{{ asset('/project/show/' ~ project.project.id) }}">{{ project.project.nom|capitalize }}</a>
+                                    </th>
+                                    <th>{{ project.project.dateCreation|date("d/m/Y") }}</th>
+                                    <th>{{ project.project.prixVente|format_currency('EUR') }}</th>
+
+                                    {% if project.coutTotal == null %}
+                                        <th>0 €</th>
+                                    {% else %}
+                                        <th>{{ project.coutTotal|format_currency('EUR') }}</th>
+                                    {% endif %}
+                                    <th>
+                                        {% if project.project.dateLivraison != null %}
+                                            <span class="badge badge-success">OUI</span>
+                                        {% else %}
+                                            <span class="badge badge-danger">NON</span>
+                                        {% endif %}
+                                    </th>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="tile">
+                    <h2 class="tile-title text-center">Temps de production</h2>
+                    <ul class="list-group">
+                        {% for timeProduction in tenLastProductionTime %}
+                            <li class="list-group-item">
+                                <a href="{{ asset('/employee/show/' ~ timeProduction.employee.id) }}">{{ timeProduction.employee.prenom|capitalize }} {{ timeProduction.employee.nom|upper }}</a> a travaillé sur <a href="{{ asset('/project/show/' ~ timeProduction.project.id) }}">{{ timeProduction.project.nom|capitalize }}</a>
+                                <div class="text-muted font-italic text-right">{{ timeProduction.nbHeures }} heures</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+        <script>
+            var ratioData = [{{ (nbProjetsRentables / projectsDelivered * 100)|number_format(2, '.', ',') }}, 100-{{ (nbProjetsRentables / projectsDelivered * 100)|number_format(2, '.', ',') }}];
+            var deliveredData = [{{ (projectsDelivered / (projectsDelivered + projectsInProgress) * 100)|number_format(2, '.', ',') }}, 100-{{ (projectsDelivered / (projectsDelivered + projectsInProgress) * 100)|number_format(2, '.', ',') }}];
+        </script>
+        <script src="{{ asset('js/dashboard.js') }}"></script>
+{% endblock %}
